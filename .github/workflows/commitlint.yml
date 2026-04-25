@@ -1,0 +1,9 @@
+name: Commitlint
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  call-commitlint:
+    uses: INENI-PT-Muehlbacher-GroupB/.github/.github/workflows/commitlint-reusable.yml@main
