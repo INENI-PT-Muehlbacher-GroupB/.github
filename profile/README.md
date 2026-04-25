@@ -86,8 +86,6 @@ To deploy the platform from scratch, follow the documentation in [`platform-iac`
 
 ## 👥 Team
 
-## 👥 Team
-
 | Member | Role | GitHub |
 |--------|------|--------|
 | Person A | IaC Lead | [@marco93r](https://github.com/marco93r) |
