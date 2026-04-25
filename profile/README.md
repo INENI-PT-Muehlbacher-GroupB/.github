@@ -88,10 +88,10 @@ To deploy the platform from scratch, follow the documentation in [`platform-iac`
 
 | Member | Role | GitHub |
 |--------|------|--------|
-| Person A | IaC Lead | [@marco93r](https://github.com/marco93r) |
-| Person B | GitOps & CI Lead | [@ronaldley](https://github.com/ronaldley) |
-| Person C | Crossplane & Secrets Lead | [@mlexinho27](https://github.com/mlexinho27) |
-| Person D | Application & DNS Lead | [@prohaskap](https://github.com/prohaskap) |
+| Ronald Ley | IaC Lead | [@ronaldley](https://github.com/ronaldley) |
+| Marco Reeh | GitOps & CI Lead | [@marco93r](https://github.com/marco93r) |
+| Alexander Mihai | Crossplane & Secrets Lead | [@mlexinho27](https://github.com/mlexinho27) |
+| Patrick Prohaska | Application & DNS Lead | [@prohaskap](https://github.com/prohaskap) |
 
 ---
 
