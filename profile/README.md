@@ -24,7 +24,10 @@ The goal is to design, build, and operate a cloud-native platform on **Google Ku
 
 ## 🏗️ Architecture Overview
 
+The platform runs on GKE Standard in `europe-west1` with 3 worker nodes (e2-standard-4).
 
+For detailed capacity and cost planning see:
+- [Capacity & Cost Planning](https://github.com/INENI-PT-GROUP-B/platform/blob/main/docs/cost-planning/capacity_costs_gcp.md)
 
 ---
 
