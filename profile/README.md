@@ -71,6 +71,44 @@ The goal is to design, build, and operate a cloud-native platform on **Google Ku
 
 ---
 
+## ✅ Prerequisites
+
+Before deploying the platform, the following GCP setup must be completed.
+
+### 1. Google Cloud Account
+
+1. Create a Google Cloud account at [cloud.google.com](https://cloud.google.com).
+2. Set up a billing account and link it to the project.
+3. Create a dedicated GCP project for the platform (e.g., `ineni-pt-group-b`).
+
+
+### 2. Required APIs
+
+Enable the following APIs in the GCP project:
+
+| API | Purpose |
+|-----|---------|
+| `cloudresourcemanager.googleapis.com` | Project and resource management |
+| `serviceusage.googleapis.com` | API enablement via IaC |
+| `iam.googleapis.com` | Service accounts, roles, IAM bindings |
+| `iamcredentials.googleapis.com` | Workload Identity token exchange |
+| `sts.googleapis.com` | Security Token Service (Workload Identity Federation) |
+| `compute.googleapis.com` | Node pools, disks, load balancers, VPC, firewalls, static IPs |
+| `container.googleapis.com` | GKE cluster management |
+| `dns.googleapis.com` | Cloud DNS for ExternalDNS and cert-manager DNS-01 challenge |
+| `secretmanager.googleapis.com` | Secrets backend for External Secrets Operator |
+| `servicenetworking.googleapis.com` | Private service access (e.g. CloudSQL peering via Crossplane) |
+| `logging.googleapis.com` | Cloud Logging (enabled by default on GKE, explicit for cost awareness) |
+| `monitoring.googleapis.com` | Cloud Monitoring (bonus task, enabled by default on GKE) |
+
+### 3. Remote State Backend
+
+Terraform state is stored in a GCS bucket with versioning and state locking enabled.
+
+> 🚧 **Setup details to be added.** See issue [`feat(iac): setup remote state backend (GCS)`](#).
+
+---
+
 ## 🚀 Getting Started
 
 To deploy the platform from scratch, follow the documentation in [`platform`](https://github.com/INENI-PT-GROUP-B/platform).
