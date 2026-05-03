@@ -6,4 +6,4 @@ on:
 
 jobs:
   call-validate:
-    uses: INENI-PT-Muehlbacher-GroupB/.github/.github/workflows/pr-title-reusable.yml@main
+    uses: INENI-PT-GROUP-B/.github/.github/workflows/pr-title-reusable.yml@main

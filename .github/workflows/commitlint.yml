@@ -6,4 +6,4 @@ on:
 
 jobs:
   call-commitlint:
-    uses: INENI-PT-Muehlbacher-GroupB/.github/.github/workflows/commitlint-reusable.yml@main
+    uses: INENI-PT-GROUP-B/.github/.github/workflows/commitlint-reusable.yml@main
