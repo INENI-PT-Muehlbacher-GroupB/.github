@@ -103,9 +103,109 @@ Enable the following APIs in the GCP project:
 
 ### 3. Remote State Backend
 
-Terraform state is stored in a GCS bucket with versioning and state locking enabled.
+This document describes the **one-time manual setup** of the Terraform remote state backend in Google Cloud Storage (GCS).
+⚠️ **Why manual?**
+The state bucket cannot be managed by the same Terraform configuration that uses it (chicken-and-egg problem). To keep the bootstrap simple and avoid dangling local state files, the bucket is created manually via `gcloud` and documented here for reproducibility. This is an accepted exception to our "everything as IaC" rule.
 
-> 🚧 **Setup details to be added.** See issue [`feat(iac): setup remote state backend (GCS)`](#).
+---
+
+#### ✅ Prerequisites
+
+- A GCP project with billing enabled
+- `gcloud` CLI installed and authenticated
+- `roles/owner` or equivalent permissions on the project
+- Decided on a GCP region (e.g. `europe-west1` or `europe-west3`)
+
+---
+
+#### 🚀 Setup Steps
+**Step 1: Set enviornment variables**
+Define the required variables in your shell. Adjust the values to match your
+project.
+
+```bash
+export PROJECT_ID="<your-project-id>"
+export REGION="europe-west1"
+export BUCKET_NAME="${PROJECT_ID}-tfstate"
+```
+
+**Step 2: Authenticate and select project**
+```bash
+gcloud auth login
+gcloud config set project "${PROJECT_ID}"
+```
+
+**Step 3: Create the GCS bucket**
+The bucket is created with secure defaults:
+- Uniform bucket-level access – disables legacy ACLs
+- Public access prevention – ensures the bucket is never accidentally public
+
+```bash
+gcloud storage buckets create "gs://${BUCKET_NAME}" \
+  --project="${PROJECT_ID}" \
+  --location="${REGION}" \
+  --uniform-bucket-level-access \
+  --public-access-prevention
+
+```
+
+**Step 4: Enable versioning**
+Versioning allows recovery from accidental state corruption or deletion.
+```bash
+gcloud storage buckets update "gs://${BUCKET_NAME}" \
+  --versioning
+```
+
+**Step 5: Configure lifecycle policy**
+To prevent unbounded growth of old state versions, configure a lifecycle policy.
+Create a file `lifecycle.json`:
+```
+{
+  "lifecycle": {
+    "rule": [
+      {
+        "action": { "type": "Delete" },
+        "condition": {
+          "numNewerVersions": 10,
+          "isLive": false
+        }
+      },
+      {
+        "action": { "type": "Delete" },
+        "condition": {
+          "daysSinceNoncurrentTime": 30,
+          "isLive": false
+        }
+      }
+    ]
+  }
+}
+```
+
+Apply it:
+```bash
+gcloud storage buckets update "gs://${BUCKET_NAME}" \
+  --lifecycle-file=lifecycle.json
+```
+
+This keeps:
+
+- The 10 most recent non-current versions, or
+- All non-current versions younger than 30 days
+
+Whichever condition is met first triggers deletion.
+
+**Step 6: Verify the configuration**
+```bash
+gcloud storage buckets describe "gs://${BUCKET_NAME}"
+```
+
+Expected properties:
+
+- versioning.enabled: true
+- iamConfiguration.uniformBucketLevelAccess.enabled: true
+- iamConfiguration.publicAccessPrevention: enforced
+- lifecycle.rule is set
 
 ---
 
