@@ -1,8 +1,8 @@
 <div align="center">
 
-# 🚀 Platform Engineering Project
+# Infrastructure Engineering Project
 
-**A Kubernetes-based multi-tenant SaaS platform built with GitOps, Crossplane, and Infrastructure as Code.**
+**A Kubernetes-based SaaS platform built with GitOps, Crossplane, and Infrastructure as Code.**
 
 [![Made with Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat&logo=kubernetes&logoColor=white)](https://kubernetes.io/)
 [![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=flat&logo=terraform&logoColor=white)](https://www.terraform.io/)
@@ -16,9 +16,9 @@
 
 ## 📖 About
 
-This organization hosts the source code and documentation for our **Platform Engineering** university project at **University of Applied Sciences Burgenland** in the Master's Degree **Cloud Computing Engineering**.
+This organization hosts the source code and documentation for our **Infrastructure Engineering** university project at **University of Applied Sciences Burgenland**.
 
-The goal is to design, build, and operate a cloud-native platform on **Google Kubernetes Engine (GKE)** that enables the automated, on-the-fly provisioning of multi-tenant SaaS application instances using **GitOps** and **Crossplane**.
+The goal is to design, build, and operate a cloud-native platform on **Google Kubernetes Engine (GKE)** that enables the automated, on-the-fly provisioning of SaaS application instances using **GitOps** and **Crossplane**.
 
 ---
 
@@ -228,12 +228,12 @@ To deploy the platform from scratch, follow the documentation in [`platform`](ht
 
 ## 👥 Team
 
-| Member | Role | GitHub |
-|--------|------|--------|
-| Ronald Ley | IaC Lead | [@ronaldley](https://github.com/ronaldley) |
-| Marco Reeh | GitOps & CI Lead | [@marco93r](https://github.com/marco93r) |
-| Alexander Mihai | Crossplane & Secrets Lead | [@mlexinho27](https://github.com/mlexinho27) |
-| Patrick Prohaska | Application & DNS Lead | [@prohaskap](https://github.com/prohaskap) |
+| Member | GitHub |
+|--------|--------|
+| Ronald Ley | [@ronaldley](https://github.com/ronaldley) |
+| Marco Reeh | [@marco93r](https://github.com/marco93r) |
+| Alexander Mihai | [@mlexinho27](https://github.com/mlexinho27) |
+| Patrick Prohaska  | [@prohaskap](https://github.com/prohaskap) |
 
 ---
 
@@ -245,6 +245,6 @@ This project is for educational purposes only.
 
 <div align="center">
 
-**Built with ❤️ by the Platform Engineering Team**
+**Built with ❤️ by Group B**
 
 </div>
