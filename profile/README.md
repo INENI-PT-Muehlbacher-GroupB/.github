@@ -32,12 +32,13 @@ The goal is to design, build, and operate a cloud-native platform on **Google Ku
 
 | Repository | Description | Visibility |
 |------------|-------------|------------|
-| [`platform-iac`](../../platform-iac) | Infrastructure as Code (Terraform) – GKE, VPC, IAM, DNS | 🌐 Public |
-| [`platform-gitops`](../../platform-gitops) | GitOps configuration – ArgoCD apps, Helm releases | 🌐 Public |
-| [`platform-crossplane`](../../platform-crossplane) | Crossplane XRDs & Compositions for tenant provisioning | 🌐 Public |
-| [`app-backend`](../../app-backend) | Sample application backend (REST API) | 🌐 Public |
-| [`app-frontend`](../../app-frontend) | Sample application frontend (SPA) | 🔒 Private |
-| [`.github`](../../.github) | Organization-wide templates and documentation | 🌐 Public |
+| [`platform`](https://github.com/INENI-PT-GROUP-B/platform) | General repository for documentation | 🌐 Public |
+| [`platform-iac`](https://github.com/INENI-PT-GROUP-B/platform-iac) | Infrastructure as Code (Terraform) – GKE, VPC, IAM, DNS | 🌐 Public |
+| [`platform-gitops`](https://github.com/INENI-PT-GROUP-B/platform-gitops) | GitOps configuration – ArgoCD apps, Helm releases | 🌐 Public |
+| [`platform-crossplane`](https://github.com/INENI-PT-GROUP-B/platform-crossplane) | Crossplane XRDs & Compositions for tenant provisioning | 🌐 Public |
+| [`app-backend`](https://github.com/INENI-PT-GROUP-B/app-backend) | Sample application backend (REST API) | 🌐 Public |
+| [`app-frontend`](https://github.com/INENI-PT-GROUP-B/app-frontend) | Sample application frontend (SPA) | 🔒 Private |
+| [`.github`](https://github.com/INENI-PT-GROUP-B/.github) | Organization-wide templates & GitHub actions for validation | 🌐 Public |
 
 ---
 
@@ -59,7 +60,7 @@ The goal is to design, build, and operate a cloud-native platform on **Google Ku
 |----------|------------|
 | **Cloud** | Google Cloud Platform (GCP) |
 | **Kubernetes** | Google Kubernetes Engine (GKE) |
-| **IaC** | Terraform/OpenTofu |
+| **IaC** | Terraform |
 | **GitOps** | ArgoCD |
 | **Provisioning** | Crossplane |
 | **Secrets** | External Secrets Operator + Google Secret Manager |
@@ -72,7 +73,7 @@ The goal is to design, build, and operate a cloud-native platform on **Google Ku
 
 ## 🚀 Getting Started
 
-To deploy the platform from scratch, follow the documentation in [`platform-iac`](../../platform-iac).
+To deploy the platform from scratch, follow the documentation in [`platform`](https://github.com/INENI-PT-GROUP-B/platform).
 
 **High-level flow:**
 
